@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     int currentSceneIndex;
+    [SerializeField] float loadLevelTime = 1f;
     
     void Start()
     {
@@ -14,18 +15,30 @@ public class CollisionHandler : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Friendly":
-                Debug.Log("Friendly Object, nothing happens");
                 break;
             case "Finish":
-                LoadNextLevel();
+                StartLevelPassSequence();
                 break;
             case "Fuel":
-                Debug.Log("+Fuel");
                 break;
             default:
-                ReloadLevel();
+                StartCrashSequence();
                 break;
         }
+    }
+
+    void StartCrashSequence()
+    {
+        // do to: insert crash animation (particle effects)
+        GetComponent<Movement>().enabled = false; // Take away player control upon crash
+        Invoke("ReloadLevel", loadLevelTime);
+    }
+
+    void StartLevelPassSequence()
+    {
+        // do to: insert level pass animation
+        GetComponent<Movement>().enabled = false; // Take away player control upon level completion
+        Invoke("LoadNextLevel", loadLevelTime);
     }
 
     void ReloadLevel()
