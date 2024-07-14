@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2851986461739341752, guid: eaccbf47be46e924998365c5a395ebf8, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3384821789153200942, guid: eaccbf47be46e924998365c5a395ebf8, type: 3}
       propertyPath: m_Name
       value: Ground
@@ -259,7 +263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -342,7 +346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 12.068, y: 0, z: 0}
 --- !u!1001 &1012356880
 PrefabInstance:
@@ -351,9 +355,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4461882199906441737, guid: 0fd9ff7303071a748af65a3dc96e64b8, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7331906902174729589, guid: 0fd9ff7303071a748af65a3dc96e64b8, type: 3}
       propertyPath: m_Name
       value: Launch Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331906902174729589, guid: 0fd9ff7303071a748af65a3dc96e64b8, type: 3}
+      propertyPath: m_TagString
+      value: Friendly
       objectReference: {fileID: 0}
     - target: {fileID: 8189139496192225939, guid: 0fd9ff7303071a748af65a3dc96e64b8, type: 3}
       propertyPath: m_RootOrder
@@ -408,6 +420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket (Player)
       objectReference: {fileID: 0}
+    - target: {fileID: 5675214138338352077, guid: f90f71fa826a33c4590222549a38dfbc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9048484058616427181, guid: f90f71fa826a33c4590222549a38dfbc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -461,9 +477,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 19331033684271343, guid: d7922eaa47e124948952f94dec2c8572, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2477883027179404249, guid: d7922eaa47e124948952f94dec2c8572, type: 3}
       propertyPath: m_Name
       value: Landing Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477883027179404249, guid: d7922eaa47e124948952f94dec2c8572, type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 6453718201834892780, guid: d7922eaa47e124948952f94dec2c8572, type: 3}
       propertyPath: m_RootOrder
@@ -509,6 +533,18 @@ PrefabInstance:
     - target: {fileID: 5690496714324707465, guid: ae62a93bdea4a7f458b99c625a4c6c7f, type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690496714324707465, guid: ae62a93bdea4a7f458b99c625a4c6c7f, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731541609451225612, guid: ae62a93bdea4a7f458b99c625a4c6c7f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 69.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731541609451225612, guid: ae62a93bdea4a7f458b99c625a4c6c7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.7
       objectReference: {fileID: 0}
     - target: {fileID: 8809838823649816050, guid: ae62a93bdea4a7f458b99c625a4c6c7f, type: 3}
       propertyPath: m_RootOrder

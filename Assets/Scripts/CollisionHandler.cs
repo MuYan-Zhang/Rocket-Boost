@@ -1,7 +1,15 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    int currentSceneIndex;
+    
+    void Start()
+    {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
     void OnCollisionEnter(Collision other) {
         switch (other.gameObject.tag)
         {
@@ -9,14 +17,25 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Friendly Object, nothing happens");
                 break;
             case "Finish":
-                Debug.Log("Level Complete");
+                LoadNextLevel();
                 break;
             case "Fuel":
                 Debug.Log("+Fuel");
                 break;
             default:
-                Debug.Log("-health");
+                ReloadLevel();
                 break;
         }
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    void LoadNextLevel()
+    {
+        int nextLevelIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextLevelIndex);
     }
 }
