@@ -420,6 +420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket (Player)
       objectReference: {fileID: 0}
+    - target: {fileID: 3697672446864173677, guid: f90f71fa826a33c4590222549a38dfbc, type: 3}
+      propertyPath: loadLevelTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5675214138338352077, guid: f90f71fa826a33c4590222549a38dfbc, type: 3}
       propertyPath: m_RootOrder
       value: 2

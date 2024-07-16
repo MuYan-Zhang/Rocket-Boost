@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrustMultiplier: 1000
   rotationMultiplier: 50
+  mainEngine: {fileID: 8300000, guid: 6793d7adb380dbc4093b5c602070ad8c, type: 3}
 --- !u!82 &3697672446864173588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -238,3 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707b9b61a5f43d43b63b15ab9edbc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadLevelTime: 1
+  crash: {fileID: 8300000, guid: 19c41fa289b967b48b09cb98ec53a318, type: 3}
+  success: {fileID: 8300000, guid: 17c63312f9fa4624280b78cbf6d479f6, type: 3}
