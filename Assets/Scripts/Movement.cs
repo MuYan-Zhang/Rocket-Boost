@@ -7,12 +7,15 @@ public class Movement : MonoBehaviour
     [SerializeField] float thrustMultiplier = 1f;
     [SerializeField] float rotationMultiplier = 1f;
     [SerializeField] AudioClip mainBoosterAudio;
+    [SerializeField] AudioClip turnBoosterAudio;
     [SerializeField] ParticleSystem mainBoosterParticles;
     [SerializeField] ParticleSystem leftBoosterParticles;
     [SerializeField] ParticleSystem rightBoosterParticles;
 
     Rigidbody rb;
     AudioSource boosterAudioSource;
+
+    bool isBoosting = false, isRotating = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +65,7 @@ public class Movement : MonoBehaviour
 
     void StartBoosting()
     {
+        isBoosting = true;
         rb.AddRelativeForce(Vector3.up * thrustMultiplier * Time.deltaTime);
         if (!boosterAudioSource.isPlaying)
         {
@@ -75,13 +79,22 @@ public class Movement : MonoBehaviour
 
     void StopBoosting()
     {
-        boosterAudioSource.Pause();
+        isBoosting = false;
+        if (!isRotating)
+        {
+            boosterAudioSource.Stop();
+        }
         mainBoosterParticles.Stop();
     }
 
     void RotateLeft()
     {
+        isRotating = true;
         ApplyRotation(rotationMultiplier);
+        if (!boosterAudioSource.isPlaying)
+        {
+            boosterAudioSource.PlayOneShot(turnBoosterAudio);
+        }
         if (!rightBoosterParticles.isPlaying)
         {
             rightBoosterParticles.Play();
@@ -90,7 +103,12 @@ public class Movement : MonoBehaviour
 
     void RotateRight()
     {
+        isRotating = true;
         ApplyRotation(-rotationMultiplier);
+        if (!boosterAudioSource.isPlaying)
+        {
+            boosterAudioSource.PlayOneShot(turnBoosterAudio);
+        }
         if (!leftBoosterParticles.isPlaying)
         {
             leftBoosterParticles.Play();
@@ -99,6 +117,11 @@ public class Movement : MonoBehaviour
 
     void StopRotation()
     {
+        isRotating = false;
+        if (!isBoosting)
+        {
+            boosterAudioSource.Stop();
+        }
         rightBoosterParticles.Stop();
         leftBoosterParticles.Stop();
     }

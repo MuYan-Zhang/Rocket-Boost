@@ -275,6 +275,7 @@ MonoBehaviour:
   thrustMultiplier: 1000
   rotationMultiplier: 50
   mainBoosterAudio: {fileID: 8300000, guid: 6793d7adb380dbc4093b5c602070ad8c, type: 3}
+  turnBoosterAudio: {fileID: 8300000, guid: 6793d7adb380dbc4093b5c602070ad8c, type: 3}
   mainBoosterParticles: {fileID: 4369725115490290884}
   leftBoosterParticles: {fileID: 2251333462996078526}
   rightBoosterParticles: {fileID: 6475029527396804153}
