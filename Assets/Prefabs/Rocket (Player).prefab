@@ -274,10 +274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrustMultiplier: 1000
   rotationMultiplier: 50
-  mainEngine: {fileID: 8300000, guid: 6793d7adb380dbc4093b5c602070ad8c, type: 3}
-  mainBooster: {fileID: 4369725115490290884}
-  leftBooster: {fileID: 6475029527396804153}
-  rightBooster: {fileID: 2251333462996078526}
+  mainBoosterAudio: {fileID: 8300000, guid: 6793d7adb380dbc4093b5c602070ad8c, type: 3}
+  mainBoosterParticles: {fileID: 4369725115490290884}
+  leftBoosterParticles: {fileID: 2251333462996078526}
+  rightBoosterParticles: {fileID: 6475029527396804153}
 --- !u!82 &3697672446864173588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 765908706338028246, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
       propertyPath: m_Name
-      value: Right Booster Particles
+      value: Left Booster Particles
       objectReference: {fileID: 0}
     - target: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
       propertyPath: m_RootOrder
@@ -903,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 765908706338028246, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
       propertyPath: m_Name
-      value: Left Booster Particles
+      value: Right Booster Particles
       objectReference: {fileID: 0}
     - target: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
       propertyPath: m_RootOrder

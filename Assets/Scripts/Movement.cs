@@ -6,19 +6,19 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float thrustMultiplier = 1f;
     [SerializeField] float rotationMultiplier = 1f;
-    [SerializeField] AudioClip mainEngine;
-    [SerializeField] ParticleSystem mainBooster;
-    [SerializeField] ParticleSystem leftBooster;
-    [SerializeField] ParticleSystem rightBooster;
+    [SerializeField] AudioClip mainBoosterAudio;
+    [SerializeField] ParticleSystem mainBoosterParticles;
+    [SerializeField] ParticleSystem leftBoosterParticles;
+    [SerializeField] ParticleSystem rightBoosterParticles;
 
     Rigidbody rb;
-    AudioSource audioSource;
+    AudioSource boosterAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        boosterAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,49 +32,75 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * thrustMultiplier * Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
-            if (!mainBooster.isPlaying)
-            {
-                mainBooster.Play();
-            }
+            StartBoosting();
         }
         else
         {
-            audioSource.Stop();
-            mainBooster.Stop();
+            StopBoosting();
         }
     }
 
     void ProcessRotation()
     {
+        // Cannot turn if both thrusters are engaged simultaneously
         if (!(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)))
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                ApplyRotation(rotationMultiplier);
-                if (!rightBooster.isPlaying)
-                {
-                    rightBooster.Play();
-                }
+                RotateLeft();
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                ApplyRotation(-rotationMultiplier);
-                if (!leftBooster.isPlaying)
-                {
-                    leftBooster.Play();
-                }
+                RotateRight();
             }
             else
             {
-                rightBooster.Stop();
-                leftBooster.Stop();
+                StopRotation();
             }
         }
+    }
+
+    void StartBoosting()
+    {
+        rb.AddRelativeForce(Vector3.up * thrustMultiplier * Time.deltaTime);
+        if (!boosterAudioSource.isPlaying)
+        {
+            boosterAudioSource.PlayOneShot(mainBoosterAudio);
+        }
+        if (!mainBoosterParticles.isPlaying)
+        {
+            mainBoosterParticles.Play();
+        }
+    }
+
+    void StopBoosting()
+    {
+        boosterAudioSource.Pause();
+        mainBoosterParticles.Stop();
+    }
+
+    void RotateLeft()
+    {
+        ApplyRotation(rotationMultiplier);
+        if (!rightBoosterParticles.isPlaying)
+        {
+            rightBoosterParticles.Play();
+        }
+    }
+
+    void RotateRight()
+    {
+        ApplyRotation(-rotationMultiplier);
+        if (!leftBoosterParticles.isPlaying)
+        {
+            leftBoosterParticles.Play();
+        }
+    }
+
+    void StopRotation()
+    {
+        rightBoosterParticles.Stop();
+        leftBoosterParticles.Stop();
     }
 
     void ApplyRotation(float rotationMultiplier)
