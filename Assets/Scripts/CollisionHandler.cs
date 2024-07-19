@@ -5,6 +5,8 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float loadLevelTime = 1f;
     [SerializeField] AudioClip crash, success;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
     
     AudioSource audioSource;
     
@@ -38,6 +40,7 @@ public class CollisionHandler : MonoBehaviour
     void StartCrashSequence()
     {
         // do to: insert crash animation (particle effects)
+        crashParticles.Play();
         isTransitioning = true;
         audioSource.Stop();
         GetComponent<Movement>().enabled = false; // Take away player control upon crash
@@ -48,6 +51,7 @@ public class CollisionHandler : MonoBehaviour
     void StartLevelPassSequence()
     {
         // do to: insert level pass animation
+        successParticles.Play();
         isTransitioning = true;
         audioSource.Stop();
         GetComponent<Movement>().enabled = false; // Take away player control upon level completion
